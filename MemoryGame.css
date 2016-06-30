@@ -1,0 +1,29 @@
+/*.rows{*/
+    /*height: 100px;*/
+    /*width: 23%;*/
+    /*border: black 2px solid;*/
+    /*display: inline-block;*/
+/*}*/
+.gameboard{
+    display: inline-block;
+    text-align: center;
+    max-width: 700px;
+}
+.covered{
+    display: inline-block;
+    height: 150px;
+    width: 120px;
+    background-image: url(http://www.lostvalleyobservatory.com/sitebuildercontent/sitebuilderpictures/pelican.best.web.lrprgb.overlay.jpg);
+    background-position: center;
+    background-size: cover;
+    border: 2px solid black;
+
+}
+.uncovered{
+    display: inline-block;
+    height: 150px;
+    width: 120px;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid black;
+}
