@@ -1,6 +1,3 @@
-/**
- * Created by itc_user on 6/30/2016.
- */
 document.body.style.backgroundImage = "url(images/bg.jpg)";
 
 var cardsToFlip = [];
@@ -55,12 +52,12 @@ var cardImages = {"animals":[
 ]};
 
 
-
+//sets initial cards and backgrounds
 var pictures = cardImages["animals"];
 var background = backgrounds["tablecloth"];
 var numDifCards;
 
-
+//handles changes to the game settings
 var handleOptionChanged = function(e){
     numDifCards = parseInt(document.getElementById("number-of-cards").value);
     if (e.target.className.indexOf("backgrounds-selector") != -1){
@@ -71,31 +68,21 @@ var handleOptionChanged = function(e){
         pictures = cardImages[e.target.id];
     }
     if (e.target.className.indexOf("new-game") != -1){
-        // pictures = cardImages["animals"];
-        // background = backgrounds["tablecloth"];
-        numDifCards = 0;
+       numDifCards = 0;
     }
 
     createBoard();
     return false;
-}
-
+};
+//makes array with num of different cards user wants and then shuffles them
 var cardRandomizer = function (numDifCards, cardsToFlip){
-
     var menuOptions = document.getElementsByClassName("menu-option");
     for(var op = 0; op < menuOptions.length ; op++){
         menuOptions[op].addEventListener("click",handleOptionChanged);
     }
-
-
         for (var h = 0; h<numDifCards*2; h++){
-
                 cardsToFlip.push(pictures[h%numDifCards]);
-
         }
-
-
-
     for (var i = cardsToFlip.length -1; i >= 0; i--){
         var j = Math.floor(Math.random()*(i+1));
         var temp = cardsToFlip[i];
@@ -104,8 +91,7 @@ var cardRandomizer = function (numDifCards, cardsToFlip){
     }
     return cardsToFlip;
 };
-
-
+//function to uncover and match clicked cars
 var displayCard = function(clickEvent){
     if (clickDisabled === false) {
         clickEvent.target.className = 'uncovered';
@@ -119,6 +105,7 @@ var displayCard = function(clickEvent){
                 clickedCards = [];
                 rightnessCounter++;
                 console.log("right" + rightnessCounter);
+                //calculates victory
                 if (rightnessCounter === numDifCards){
                     document.getElementsByClassName('win-text')[0].innerHTML = "You won! You made " + wrongnessCounter + " wrong guesses.";
                     document.getElementsByClassName('win-overlay')[0].style.display = 'block';
@@ -140,12 +127,13 @@ var displayCard = function(clickEvent){
         }
     }
 };
+// shows victory message when win
 var youWon = function(){
     document.getElementsByClassName('win-overlay')[0].style.display = 'none';
     numDifCards = 0;
     createBoard();
 };
-
+//creates board with all cards set as covered
 var createBoard = function(){
     wrongnessCounter = 0;
     rightnessCounter = 0;
