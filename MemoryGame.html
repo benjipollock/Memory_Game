@@ -36,7 +36,19 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#numcards" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose # of different cards <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
 
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                    <span class="input-group-addon">
+                                 <input class="menu-option" id="number-of-cards" type="number" value=0 max="12" min="0" aria-label="...">
+                                    </span>
+                            </div><!-- /input-group -->
+                        </div>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose Texture <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -54,26 +66,19 @@
 
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#numcards" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose # of different cards <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
 
-                        <div class="col-lg-6">
-                            <div class="input-group">
-                                    <span class="input-group-addon">
-                                 <input id="number-of-cards" type="number" value=4 aria-label="...">
-                                    </span>
-                            </div><!-- /input-group -->
-                        </div>
-                    </ul>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">New Game</a></li>
+                <li><a class="new-game menu-option">Reset</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+<div class="win-overlay">
+    <div class="win-text"></div>
+    <button onclick="youWon()">Replay?</button>
+</div>
 
 <div class="container-fluid gameboard"></div>
 
