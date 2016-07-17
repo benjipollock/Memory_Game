@@ -100,11 +100,8 @@ var displayCard = function(clickEvent){
 
         if (clickedCards.length === 2) {
             if (clickedCards[0].getAttribute('src') === clickedCards[1].getAttribute('src')) {
-                console.log("in loop" + clickedCards);
-                console.log('woohoo!');
                 clickedCards = [];
                 rightnessCounter++;
-                console.log("right" + rightnessCounter);
                 //calculates victory
                 if (rightnessCounter === numDifCards){
                     document.getElementsByClassName('win-text')[0].innerHTML = "You won! You made " + wrongnessCounter + " wrong guesses.";
@@ -148,6 +145,5 @@ var createBoard = function(){
         document.getElementsByClassName('gameboard')[0].appendChild(card);
         card.addEventListener('click', displayCard);
     }
-
 };
 window.onload = createBoard();
