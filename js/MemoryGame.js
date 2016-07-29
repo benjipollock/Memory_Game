@@ -1,5 +1,3 @@
-document.body.style.backgroundImage = "url(images/bg.jpg)";
-
 var cardsToFlip = [];
 var clickDisabled = false;
 var clickedCards = [];
@@ -136,14 +134,15 @@ var createBoard = function(){
     rightnessCounter = 0;
     cardsToFlip = [];
     cardRandomizer(numDifCards, cardsToFlip);
-    document.getElementsByClassName('gameboard')[0].innerHTML = "";
+    document.getElementById('gameboard').innerHTML = "";
     for (var i = 0; i < numDifCards*2; i++){
         var card = document.createElement('div');
         card.className = 'covered';
         card.style.backgroundImage = background;
         card.setAttribute('src', cardsToFlip[i].src);
-        document.getElementsByClassName('gameboard')[0].appendChild(card);
+        document.getElementById('gameboard').appendChild(card);
         card.addEventListener('click', displayCard);
     }
+    document.getElementById('replayButton').addEventListener('click', youWon)
 };
 window.onload = createBoard();

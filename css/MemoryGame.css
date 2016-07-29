@@ -1,8 +1,11 @@
+body{
+    background-image: url(../images/bg.jpg);
+}
 #logo{
     height: 30px;
 
 }
-.gameboard{
+#gameboard{
     display: inline-block;
     text-align: center;
     max-width: 600px;
